@@ -1,0 +1,19 @@
+{% if latest_conference %}
+    <table border="1">
+    {% for day in latest_conference.day_set.all %}
+        <tr><td colspan="{{ max_sessions }}">{{ day }}</td></tr>
+        {% for timeslot in day.timeslot_set.all %}
+            <tr>
+                <td colspan="{{ max_sessions }}">{{ timeslot.gettime }}</td>
+                <tr>
+                    {% for talk in timeslot.talk_set.all %}
+                        <td>{{ talk }}</td>
+                    {% endfor %}
+                </tr>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No conference program available.</p>
+{% endif %}

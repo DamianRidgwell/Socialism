@@ -55,6 +55,7 @@ class Talk(models.Model):
     publish = models.BooleanField
     publish_after = models.DateField('publish_after', null=True, blank=True)
     audio_file = models.FileField(upload_to='media/talks', null=True, blank=True)
+    short_description = models.CharField(max_length=300, blank=True)
     description = models.CharField(max_length=1000, blank=True)
     image = models.FileField(upload_to='media/images', null=True, blank=True)
     tags = TaggableManager()

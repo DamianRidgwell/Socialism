@@ -7,7 +7,10 @@
                 <td colspan="{{ max_sessions }}">{{ timeslot.gettime }}</td>
                 <tr>
                     {% for talk in timeslot.talk_set.all %}
-                        <td>{{ talk }}</td>
+                        <td>
+                            <a href="{% url 'Audio_Archive:talk_detail' talk.id %}">{{ talk }}</a>
+                            <p>{{ talk.short_description }}</p>
+                        </td>
                     {% endfor %}
                 </tr>
             </tr>

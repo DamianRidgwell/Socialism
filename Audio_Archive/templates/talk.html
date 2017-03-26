@@ -1,0 +1,8 @@
+{% if talk %}
+    <p>Title</p>
+    <p>{{ talk.title }}</p>
+    <p>Description</p>
+    <p>{{ talk.description }}</p>
+{% else %}
+    <p>No details for this talk available.</p>
+{% endif %}
